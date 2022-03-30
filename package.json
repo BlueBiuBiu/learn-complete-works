@@ -1,0 +1,22 @@
+{
+  "name": "learn-complete-works",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.2.4",
+    "element-plus": "^2.1.7",
+    "normalize.css": "^8.0.1",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "less": "^4.1.2",
+    "unplugin-auto-import": "^0.6.6",
+    "unplugin-vue-components": "^0.18.5",
+    "vite": "^2.9.0-beta.11"
+  }
+}
