@@ -11,7 +11,7 @@
       class="el-menu-vertical-demo"
       :collapse="!isCollapse"
     >
-      <template v-for="menu in subMenus" :key="menu.label">
+      <template v-for="menu in store.config" :key="menu.label">
         <el-sub-menu :index="menu.label">
           <template #title>
             <el-icon>
@@ -19,20 +19,9 @@
             </el-icon>
             <span>{{menu.label}}</span>
           </template>
-          <template v-for="group in menu.group" :key="group.title">
-            <el-menu-item-group v-if="group.title">
-              <template #title><span>{{group.title}}</span></template>
-              <el-menu-item v-for="groupItem in group.groupItem" :key="groupItem.label" :index="groupItem.label" @click="menuClick(groupItem)">
-                {{groupItem.label}}
-              </el-menu-item>
-            </el-menu-item-group>
-            <div v-else>
-              <el-menu-item v-for="groupItem in group.groupItem" :key="groupItem.label" :index="groupItem.label" @click="menuClick(groupItem)">
-                {{groupItem.label}}
-              </el-menu-item>
-            </div>
-          </template>
-          
+          <el-menu-item v-for="group in menu.group" :key="group.subTitle" :index="group.subTitle" @click="menuClick(group)">
+            {{group.subTitle}}
+          </el-menu-item>
         </el-sub-menu>
       </template>
     </el-menu>
@@ -42,9 +31,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router"
-// 个人配置
-import { subMenus } from "./config";
+// pinia保存的状态
+import { useStore } from "@/store";
 
+const store = useStore()
 const isCollapse = ref(true);
 const router = useRouter()
 const emit = defineEmits(['collapse'])
@@ -55,7 +45,7 @@ const switchCollapse = () => {
 
 // 菜单点击
 const menuClick = (item) => {
-  router.replace({path: item.url})
+  router.replace({path: "/doc",query: {src: item.officialWebsite}})
 }
 
 </script>

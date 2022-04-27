@@ -6,7 +6,7 @@
         <el-aside :width="isFold ? '200px' : '66px'"><Aside @collapse="collapse"/></el-aside>
         <el-container>
           <el-main><Main /></el-main>
-          <el-footer>Footer</el-footer>
+          <!-- <el-footer>Footer</el-footer> -->
         </el-container>
       </el-container>
     </el-container>

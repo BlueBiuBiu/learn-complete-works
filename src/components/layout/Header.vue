@@ -5,7 +5,33 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
+import { getUserConfigByUsername } from "@/service/user/userConfig.js" 
+import { useStore } from "@/store/index.js"
+
+const store = useStore()
+
+onMounted(async () => {
+  const result = await getUserConfigByUsername("admin")
+  const filter = new Set()
+  const userConfig = []
+  result.forEach((item,index) => {
+    if(!filter.has(item.title)) {
+      filter.add(item.title)
+      userConfig.push({
+        image: item.imageUrl,
+        label: item.title,
+        group: [item.groupItem]
+      })
+    } else {
+      const index = userConfig.findIndex(configItem => configItem.label === item.title)
+      userConfig[index].group.push(item.groupItem)
+    }
+  })
+  console.log(userConfig);
+  store.saveUserConfig(userConfig)
+})
+
 
 </script>
 
