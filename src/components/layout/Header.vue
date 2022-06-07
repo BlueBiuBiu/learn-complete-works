@@ -11,8 +11,16 @@ import { useStore } from "@/store/index.js"
 
 const store = useStore()
 
+const awaitWrap = (promise) => {
+  return promise
+    .then(res => ({data: res, err:null}))
+    .catch(err => ({data: null, err}))
+}
+
 onMounted(async () => {
-  const result = await getUserConfigByUsername("admin")
+  const result = await awaitWrap(getUserConfigByUsername("admin"))
+  console.log('result22',result);
+  return
   const filter = new Set()
   const userConfig = []
   result.forEach((item,index) => {

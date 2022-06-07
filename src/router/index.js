@@ -1,17 +1,13 @@
-import { createRouter, createWebHashHistory } from "vue-router"
+import LoadDoc from "@/components/loadDoc/loadDoc.vue"
 
 const routes = [
   // 官方文档
   {
     path: "/doc",
     name: "doc",
-    component: () => import("@/components/loadDoc/loadDoc.vue")
+    component: LoadDoc
   },
 ]
 
-const router = createRouter({
-  routes,
-  history: createWebHashHistory()
-})
 
-export default router
+export default routes

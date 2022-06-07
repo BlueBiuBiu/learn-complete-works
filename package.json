@@ -6,6 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@ice/stark-app": "^1.5.0",
     "@vitejs/plugin-vue": "^2.2.4",
     "axios": "^0.26.1",
     "element-plus": "^2.1.7",
