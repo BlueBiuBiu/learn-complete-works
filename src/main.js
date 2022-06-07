@@ -16,6 +16,7 @@ export const history = createWebHistory(isInIcestark() ? getBasename() : '/');
 let vue = null;
 
 const runApp = container => {
+  console.log('routes', routes);
   const router = createRouter({
     history,
     routes,

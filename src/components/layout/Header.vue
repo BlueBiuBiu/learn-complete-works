@@ -19,11 +19,9 @@ const awaitWrap = (promise) => {
 
 onMounted(async () => {
   const result = await awaitWrap(getUserConfigByUsername("admin"))
-  console.log('result22',result);
-  return
   const filter = new Set()
   const userConfig = []
-  result.forEach((item,index) => {
+  result.data.forEach((item,index) => {
     if(!filter.has(item.title)) {
       filter.add(item.title)
       userConfig.push({
@@ -36,7 +34,6 @@ onMounted(async () => {
       userConfig[index].group.push(item.groupItem)
     }
   })
-  console.log(userConfig);
   store.saveUserConfig(userConfig)
 })
 

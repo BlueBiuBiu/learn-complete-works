@@ -1,0 +1,9 @@
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/vue-logo.png', 'vue文档', '我是副标题', 'https://cn.vuejs.org/v2/guide/', 'vue2');
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/vue-logo.png', 'vue文档', '我是副标题', 'https://v3.cn.vuejs.org/guide/introduction.html', 'vue3');
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', 'react文档', 'react', 'http://react.caibaojian.com.cn/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', 'react文档', 'react', 'http://react.caibaojian.com.cn/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', '前端构建工具', 'webpack', 'https://webpack.docschina.org/concepts/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', '前端构建工具', 'webpack', 'https://webpack.docschina.org/concepts/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', '服务端', 'node', 'http://nodejs.cn/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', '服务端', 'node1', 'http://nodejs.cn/', NULL);
+INSERT INTO `userconfig` (`username`, `imageUrl`, `title`, `subTitle`, `officialWebsite`, `label`) VALUES ('admin', '/src/assets/layout-image/react-logo.jpg', '服务端', 'node2', 'http://nodejs.cn/', NULL);
