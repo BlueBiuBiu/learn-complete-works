@@ -29,14 +29,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { getCurrentInstance, ref } from "vue";
 import { useRouter } from "vue-router"
 // pinia保存的状态
 import { useStore } from "@/store";
 
 const store = useStore()
-const isCollapse = ref(true);
 const router = useRouter()
+const { proxy } = getCurrentInstance()
+const isCollapse = ref(true);
 const emit = defineEmits(['collapse'])
 
 const switchCollapse = () => {
@@ -45,7 +46,11 @@ const switchCollapse = () => {
 
 // 菜单点击
 const menuClick = (item) => {
-  router.replace({path: "/doc",query: {src: item.officialWebsite}})
+  // router.replace({path: "/doc",query: {src: item.officialWebsite}})
+
+  proxy.$spin.show()
+  router.replace({path: "/doc"})
+  store.toIframeSrc(item.officialWebsite)
 }
 
 </script>

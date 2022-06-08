@@ -1,23 +1,27 @@
 <template>
-  <div class="container" v-loading="loading" element-loading-text="加载中...">
-    <iframe @load="load" :src="route.query.src" frameborder="0"></iframe>
+  <div class="container" element-loading-text="加载中...">
+    <iframe @load="load" :src="store.src" frameborder="0"></iframe>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { onMounted, ref, getCurrentInstance } from "vue"
 import { useRoute, onBeforeRouteUpdate } from "vue-router"
+import { useStore } from "@/store";
 
 const route = useRoute()
+const store = useStore()
+const { proxy } = getCurrentInstance()
 let loading = ref(true)
+let src = ref('')
 
 const load = () => {
-  loading.value = false
+  proxy.$spin.hide()
 }
 
-onBeforeRouteUpdate(to => {
-  loading.value = true
-})
+// onBeforeRouteUpdate(to => {
+//   loading.value = true
+// })
 
 </script>
 

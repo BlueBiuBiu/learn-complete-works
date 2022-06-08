@@ -3,6 +3,7 @@ import App from './App.vue'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import ElementPlus from 'element-plus'
+import { ElLoading } from 'element-plus'
 import routes from './router';
 import isInIcestark from '@ice/stark-app/lib/isInIcestark';
 import getBasename from '@ice/stark-app/lib/getBasename';
@@ -22,6 +23,15 @@ const runApp = container => {
     routes,
   });
   vue = createApp(App);
+  let loadingInstance = null
+  vue.config.globalProperties.$spin = {
+    show: () => {
+      loadingInstance = ElLoading.service({ fullscreen: true })
+    },
+    hide() {
+      loadingInstance.close()
+    }
+  }
   vue.use(ElementPlus, { size: 'small', zIndex: 3000 })
   vue.use(router)
   vue.use(createPinia())
